@@ -3,6 +3,14 @@
 ## What is done
 An app that works for 1 client session with 1 API key to draw even updates from the Calendly Webhook and display them in a basic table in the browser. My approach includes the start of a subscription on load of '/.' The webhook will push to an endpoint that saves all event updates for the user in the database. A javascript fetch call (ES6 is required) retrieves latest 10 event updates on server boot and then updates every 30 seconds with newly created event updates. If you need to clear the subscription to the webhook, load '/delete' in the browser.
 
+To run the server, you will need to add a constants.rb file in the config/initializers directory that defines:
+
+API_KEY=
+SUBSCRIPTION_URL=
+LOADING_URL=
+
+The first is the API key to talk to Calendly. The second is the URL that Calendly will call (domain + '/pushhere'). The third is the URL that the Javascript function will call to load event updates (domain + '/load').
+
 
 ## What is not done
 Tests.
