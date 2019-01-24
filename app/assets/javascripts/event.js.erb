@@ -1,0 +1,27 @@
+// Fetch from load endpoint. Attach returned html into table. Figure out how to append to the top.
+// Change the load endpoint to sort by created at decsending
+
+function getEvents() {
+  let table = document.getElementById('event-stream');
+  let lastId = 0;
+  if (table.innerHTML.trim()) {
+    lastId = table.rows[0].cells[0].innerText;
+  }
+
+  let url = `<%= LOADING_URL %>${lastId}`;
+  fetch(url)
+    .then(function(response) {
+      return response.text();
+    })
+    .then(function(responseText) {
+      let existing = table.innerHTML;
+      table.innerHTML = responseText + existing;
+    });
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  // Retrieve any already created events onload
+  getEvents();
+  // Refresh event updates every minute
+  setInterval(getEvents, 30000);
+}, false);

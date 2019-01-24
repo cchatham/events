@@ -1,0 +1,19 @@
+// Place all the styles related to the Event controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+html, body {
+  background-color: rgb(50, 50, 50);
+  height: 100%;
+}
+
+.center {
+  margin: auto;
+  width: 75%;
+  padding: 1%;
+  background-color: white;
+  height: 100%
+}
+
+h1 {
+  text-align: center;
+}

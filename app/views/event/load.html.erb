@@ -1,0 +1,21 @@
+<% @events.each do |event| %>
+  <tr>
+    <td id="event_id"><%= event.id %></td>
+    <td>
+      <%= "#{event.duration} minute #{event.event_kind} with #{event.invitee_name}" %>
+    </td>
+    <td>
+      <% if event.update_type == 'invitee.created' %>
+        Created
+      <% elsif event.update_type == 'invitee.canceled' %>
+        Canceled
+      <% end %>
+    </td>
+    <td>
+      <%= event.start_time %>
+    </td>
+    <td>
+      <%= event.end_time %>
+    </td>
+  </tr>
+<% end %>
